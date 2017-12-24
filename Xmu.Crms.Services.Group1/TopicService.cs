@@ -17,13 +17,13 @@ namespace Xmu.Crms.Services.Group1
             _topicDao = topicDao;
         }
 
-        //按topicId删除SeminarGroupTopic表信息.√
+        //按topicId删除SeminarGroupTopic表信息.
         public void DeleteSeminarGroupTopicByTopicId(long topicId)
         {
             _topicDao.DeleteSeminarGroupTopicByTopicId(topicId);
         }
 
-        //按topicId和小组Id删除SeminarGroupTopic√
+        //按topicId和小组Id删除SeminarGroupTopic
         public void DeleteSeminarGroupTopicById(long groupId, long topicId)
         {
             _topicDao.DeleteSeminarGroupTopic(topicId,groupId);    
@@ -40,14 +40,14 @@ namespace Xmu.Crms.Services.Group1
             }
         }
 
-        //删除topic√
+        //删除topic
         public void DeleteTopicByTopicId(long topicId)
         {
             _topicDao.DeleteSeminarGroupTopicByTopicId(topicId);
             _topicDao.DeleteTopic(topicId);
         }
 
-        //通过小组Id和Topicid获得小组话题记录√
+        //通过小组Id和Topicid获得小组话题记录
         public SeminarGroupTopic GetSeminarGroupTopicById(long topicId, long groupId)
         {
             try
@@ -57,7 +57,7 @@ namespace Xmu.Crms.Services.Group1
             
         }
        
-        //按topicId获取topic√
+        //按topicId获取topic
         public Topic GetTopicByTopicId(long topicId)
         {
             try
@@ -67,7 +67,7 @@ namespace Xmu.Crms.Services.Group1
 
         }
 
-        //插入新的话题√
+        //插入新的话题
         public long InsertTopicBySeminarId(long seminarId, Topic topic)
         {
             Seminar s = new Seminar();
@@ -80,7 +80,7 @@ namespace Xmu.Crms.Services.Group1
             return result;
         }
 
-        //通过Seminarid获得该seminar下所有话题√
+        //通过Seminarid获得该seminar下所有话题
         public IList<Topic> ListTopicBySeminarId(long seminarId)
         {
             try
@@ -89,7 +89,7 @@ namespace Xmu.Crms.Services.Group1
             }catch (TopicNotFoundException e) { throw e; }
         }
 
-        //更新√
+        //更新
         public void UpdateTopicByTopicId(long topicId, Topic topic)
         {
             try
@@ -98,7 +98,7 @@ namespace Xmu.Crms.Services.Group1
             }catch(TopicNotFoundException e) { throw e; }
         }
 
-        //根据小组id获取该小组该堂讨论课所有选题信息√ 
+        //根据小组id获取该小组该堂讨论课所有选题信息
         public List<SeminarGroupTopic> listSeminarGroupTopicByGroupId(long groupId)
         {
             try

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*************/
+/*************/
+/*@author 1-4*/
+/*************/
+/*************/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xmu.Crms.Services.Group1.Dao;
@@ -110,5 +115,33 @@ namespace Xmu.Crms.Services.Group1
                 throw e;
             }
         }
+
+
+        //获取话题选取情况
+        public int GetRestTopicById(long topicId,long classId)
+        {
+            int result = 0;
+            int count=0;
+            try
+            {
+                Topic topic = _topicDao.GetTopic(topicId);
+                result = topic.GroupNumberLimit;
+                IList<SeminarGroup> seminarGroup = _topicDao.GetSeminarGroupById(classId, topic.Seminar.Id);
+                foreach (var s in seminarGroup)
+                {
+                    SeminarGroupTopic seminarGroupTopic = _topicDao.GetSeminarGroupTopic(topicId, s.Id);
+                    if(seminarGroupTopic!=null)
+                           count++;
+                }
+            }
+            catch(System.Exception e)
+            {
+                if (e.ToString().Equals("找不到该话题!"))
+                    throw e;
+            }
+            result -= count;
+            return result;          
+        }
+
     }
 }

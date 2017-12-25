@@ -1,4 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*************/
+/*************/
+/*@author 1-4*/
+/*************/
+/*************/
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,6 +122,12 @@ namespace Xmu.Crms.Services.Group1
             }
             return topic;
              
+        }
+
+        public IList<SeminarGroup> GetSeminarGroupById(long classId,long seminarId)
+        {
+            IList<SeminarGroup> list = _db.SeminarGroup.Include(s=>s.Seminar).Include(s=>s.ClassInfo).Where(s => s.ClassInfo.Id == classId & s.Seminar.Id == seminarId).ToList<SeminarGroup>();
+            return list;
         }
 
 

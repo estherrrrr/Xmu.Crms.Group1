@@ -34,5 +34,7 @@ namespace Xmu.Crms.Services.Group1.Dao
         void DeleteStudentScoreGroup(long seminargrouptopicId);
 
         List<SeminarGroupTopic> FindSeminarGroupTopicByGroupId(long id);
+
+        IList<SeminarGroup> GetSeminarGroupById(long classId, long seminarId);
     }
 }

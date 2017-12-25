@@ -6,7 +6,7 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class InsomniaExtensions
     {
         public static IServiceCollection AddInsomniaSeminarGroupService(this IServiceCollection serviceCollection) =>
-            serviceCollection.AddScoped<ISeminarGroupService, GroupService>();
+            serviceCollection.AddScoped<ISeminarGroupService, SeminarGroupService>();
 
         public static IServiceCollection AddInsomniaFixedGroupService(this IServiceCollection serviceCollection) =>
             serviceCollection.AddScoped<IFixGroupService, FixedGroupService>();

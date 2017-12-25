@@ -49,7 +49,6 @@ namespace Xmu.Crms.Services.Insomnia
             {
                 throw new PhoneAlreadyExistsException();
             }
-
             user.Type = Type.Unbinded;
 
             var entry = _db.UserInfo.Add(user);

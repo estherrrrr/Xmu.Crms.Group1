@@ -47,8 +47,8 @@ namespace Xmu.Crms.Services.Group1
                 throw new ArgumentException();//id格式错误
             Location location = _userDao.FindTeacherLocation(classId, seminarId);
            
-            double tLongtitude = location.Longitude;
-            double tLatitude = location.Latitude;
+            double tLongtitude = (double)location.Longitude;
+            double tLatitude = (double)location.Latitude;
             double EARTH_RADIUS = 6378.137;//地球半径
             double radLat1 = rad(tLatitude);
             double radLat2 = rad(latitude);

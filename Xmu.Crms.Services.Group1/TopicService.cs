@@ -99,7 +99,7 @@ namespace Xmu.Crms.Services.Group1
         }
 
         //根据小组id获取该小组该堂讨论课所有选题信息
-        public List<SeminarGroupTopic> listSeminarGroupTopicByGroupId(long groupId)
+        public List<SeminarGroupTopic> ListSeminarGroupTopicByGroupId(long groupId)
         {
             try
             {

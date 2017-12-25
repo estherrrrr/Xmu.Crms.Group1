@@ -11,11 +11,11 @@ namespace Xmu.Crms.Services.Group1
     class UserService : IUserService
     {
         private readonly IUserDao _userDao;
-        //private readonly ICourseService _courseService;
-        public UserService(IUserDao userDao)//, ICourseService courseService)
+        private readonly ICourseService _courseService;
+        public UserService(IUserDao userDao, ICourseService courseService)
         {
             _userDao = userDao;
-            //_courseService = courseService;
+            _courseService = courseService;
         }
 
         // 根据用户Id获取用户的信息
@@ -97,19 +97,22 @@ namespace Xmu.Crms.Services.Group1
             return list;
         }
 
-        // 根据教师名称列出课程名称
-        //public IList<Course> ListCourseByTeacherName(string teacherName)
-        //{
-        //    IList<UserInfo> users = ListUserByUserName(teacherName);
-        //    foreach (UserInfo u in users)
-        //    {
-        //        if (u.Type == Shared.Models.Type.Teacher)
-        //        {
-        //            list += courseService.ListCourseByUserId(u.Id);
-        //        }
-        //    }
-        //    return list;
-        //}
+        //根据教师名称列出课程名称
+        public IList<Course> ListCourseByTeacherName(string teacherName)
+        {
+            IList<UserInfo> users = ListUserByUserName(teacherName);
+            IList<Course> list=new List<Course>();
+            foreach (UserInfo u in users)
+            {
+                if (u.Type == Shared.Models.Type.Teacher)
+                {
+                    IList<Course> temp = _courseService.ListCourseByUserId(u.Id);
+                    foreach (var c in temp)
+                        list.Add(c);
+                }
+            }
+            return list;
+        }
 
         //list 处于迟到状态的学生的列表
         public IList<UserInfo> ListLateStudent(long seminarId, long classId)

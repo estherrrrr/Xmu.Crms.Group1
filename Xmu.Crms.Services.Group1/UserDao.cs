@@ -116,14 +116,14 @@ namespace Xmu.Crms.Services.Group1
                     userInfo.Avatar = newUserInfo.Avatar;
                     userInfo.Education = newUserInfo.Education;
                     userInfo.Email = newUserInfo.Email;
-                    userInfo.Gender = newUserInfo.Gender;
-                    userInfo.Name = newUserInfo.Name;
-                    userInfo.Number = newUserInfo.Number;
-                    userInfo.Password = newUserInfo.Password;
-                    userInfo.Phone = newUserInfo.Phone;
-                    userInfo.School = newUserInfo.School;
-                    userInfo.Title = newUserInfo.Title;
-                    userInfo.Type = newUserInfo.Type;
+                    //userInfo.Gender = newUserInfo.Gender;
+                    //userInfo.Name = newUserInfo.Name;
+                    //userInfo.Number = newUserInfo.Number;
+                    //userInfo.Password = newUserInfo.Password;
+                    //userInfo.Phone = newUserInfo.Phone;
+                    //userInfo.School = newUserInfo.School;
+                    //userInfo.Title = newUserInfo.Title;
+                    //userInfo.Type = newUserInfo.Type;
                     _db.Entry(userInfo).State = EntityState.Modified;
                     _db.SaveChanges();
                 }

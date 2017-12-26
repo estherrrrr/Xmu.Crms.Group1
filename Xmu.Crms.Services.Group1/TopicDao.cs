@@ -273,7 +273,7 @@ namespace Xmu.Crms.Services.Group1
         //根据小组id获取该小组该堂讨论课所有选题信息
         public List<SeminarGroupTopic> FindSeminarGroupTopicByGroupId(long id)
         {
-            List<SeminarGroupTopic> list = _db.SeminarGroupTopic.Include(s => s.SeminarGroup).Where(s => s.SeminarGroup.Id == id).ToList<SeminarGroupTopic>();
+            List<SeminarGroupTopic> list = _db.SeminarGroupTopic.Include(s => s.Topic).Where(s => s.SeminarGroup.Id == id).ToList<SeminarGroupTopic>();
             if (list == null) throw new SeminarNotFoundException();
             return list;
         }

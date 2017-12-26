@@ -141,6 +141,9 @@ namespace Xmu.Crms.Services.Group1
             
         }
 
-       
+        public UserInfo GetByNumber(string number)
+        {
+            return _db.UserInfo.Where(s => s.Number == number).SingleOrDefault<UserInfo>();
+        }
     }
 }

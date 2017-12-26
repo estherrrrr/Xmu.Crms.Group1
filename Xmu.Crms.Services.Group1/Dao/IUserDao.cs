@@ -30,5 +30,8 @@ namespace Xmu.Crms.Services.Group1.Dao
 
         //修改个人信息
         void UpdateUserByUserId(long userId, UserInfo userInfo);
+
+        //通过学号获取用户信息
+        UserInfo GetByNumber(string number);
     }
 }
